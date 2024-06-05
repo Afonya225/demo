@@ -1,0 +1,55 @@
+<Button_Time@MDRaisedButton>:
+    text: " Дата "
+    size_hint: .5, .5
+    background_color: [.98, .55, .07, 1]
+    style: "filled"
+
+<Button_Date@MDRaisedButton>:
+    text: " Время "
+    size_hint: .5, .5
+
+
+
+<Coin>:
+#:import MDButton kivymd.uix.button
+
+    background_down: "test_bg.png"
+    BoxLayout:
+        pos_hint: {"top":0.95}
+        #size_hint: .5, .33
+
+        GridLayout:
+            cols: 1
+            BoxLayout:
+                spacing: 10
+                padding: 20
+                Button_Time:
+                    on_release: root.show_date_picker()
+                Button_Date:
+                    on_release: root.show_time_picker()
+            Label:
+                text: " + "
+                bold: True
+                color: [.69,.41,.81,1]
+                hint_text: "4sp"
+            BoxLayout:
+                spacing: 10
+                padding: 20
+                Button_Time:
+                    on_release: root.show_date_picker()
+                Button_Date:
+                    on_release: root.show_time_picker()
+            Label:
+                id: LB_result
+                text: "Результат"
+                bold: True
+                color: [.69,.41,.81,1]
+                font_size: 25
+            FloatLayout:
+                MDRaisedButton:
+                    pos_hint: {"center_x":0.5, "center_y":0.7}
+                    text: "Рассчетать"
+                    size_hint: 0.3, 0.5
+                    on_press: root.calculate()
+
+#d
